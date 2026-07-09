@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Admin;
 use App\Models\User;
 
 return [
@@ -16,8 +17,8 @@ return [
     */
 
     'defaults' => [
-        'guard' => env('AUTH_GUARD', 'web'),
-        'passwords' => env('AUTH_PASSWORD_BROKER', 'users'),
+        'guard' => env('AUTH_GUARD', 'web'), // kiểm tra guard mặc định là web hay admin, nếu muốn đổi thì cần đổi ở đây và ở file .env
+        'passwords' => env('AUTH_PASSWORD_BROKER', 'users'), // mặc định reset password cho user, nếu muốn reset password cho admin thì cần tạo thêm 1 broker nữa
     ],
 
     /*
@@ -42,6 +43,10 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+        'admin' => [
+            'driver' => 'session',
+            'provider' => 'admins',
+        ]
     ],
 
     /*
@@ -66,6 +71,9 @@ return [
             'driver' => 'eloquent',
             'model' => env('AUTH_MODEL', User::class),
         ],
+        'admins' => [
+            'driver' => 'eloquent',
+            'model' => env('AUTH_ADMIN_MODEL', Admin::class),],
 
         // 'users' => [
         //     'driver' => 'database',
@@ -99,6 +107,12 @@ return [
             'expire' => 60,
             'throttle' => 60,
         ],
+          'admins' => [
+            'provider' => 'admins',
+            'table' => env('AUTH_PASSWORD_RESET_TOKEN_TABLE', 'password_reset_tokens'),
+            'expire' => 60,
+            'throttle' => 60,
+        ]
     ],
 
     /*
