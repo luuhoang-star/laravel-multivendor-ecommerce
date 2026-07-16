@@ -15,13 +15,9 @@ Route::middleware('guest:admin') // middleware 'guest:admin sẽ kiểm tra xem 
     ->prefix('admin')
     ->as('admin.')
     ->group(function () {
-        Route::get('register', [RegisteredUserController::class, 'create'])
-            ->name('register');
-
-        Route::post('register', [RegisteredUserController::class, 'store']);
 
         Route::get('login', [AuthenticatedSessionController::class, 'create'])
-            ->name('login');
+                ->name('login');
 
         Route::post('login', [AuthenticatedSessionController::class, 'store']);
 
@@ -63,3 +59,7 @@ Route::middleware('auth:admin') // middleware 'auth:admin' sẽ kiểm tra xem n
     Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])
         ->name('logout');
 });
+
+Route::get('/admin/dashboard', function () {
+    return view('admin.dashboard.index');
+})->middleware(['auth:admin', 'verified'])->name('admin.dashboard');
