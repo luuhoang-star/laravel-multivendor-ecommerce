@@ -20,8 +20,8 @@
                             <figure class="img-hover-scale overflow-hidden">
                                 <a href="shop-grid-right.html"><img src="assets/imgs/shop/cat-12.png" alt="" /></a>
                             </figure>
-                            <h6><a href="shop-grid-right.html">Whatches</a></h6>
-                            <span>28 items</span>
+                            <h6><a href="shop-grid-right.html">Đồng hồ</a></h6>
+                            <span>28 sản phẩm</span>
                         </div>
                         <div class="card-2 bg-11 wow animate__animated animate__fadeInUp" data-wow-delay=".3s">
                             <figure class="img-hover-scale overflow-hidden">
@@ -83,8 +83,8 @@
                             <figure class="img-hover-scale overflow-hidden">
                                 <a href="shop-grid-right.html"><img src="assets/imgs/shop/cat-12.png" alt="" /></a>
                             </figure>
-                            <h6><a href="shop-grid-right.html">Whatches</a></h6>
-                            <span>28 items</span>
+                            <h6><a href="shop-grid-right.html">Đồng hồ</a></h6>
+                            <span>28 sản phẩm</span>
                         </div>
                     </div>
                 </div>

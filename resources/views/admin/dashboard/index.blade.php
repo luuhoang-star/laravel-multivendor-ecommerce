@@ -55,8 +55,8 @@
                                                         </svg></span>
                                                 </div>
                                                 <div class="col">
-                                                    <div class="font-weight-medium">132 Sales</div>
-                                                    <div class="text-secondary">12 waiting payments</div>
+                                                    <div class="font-weight-medium">132 Doanh số</div>
+                                                    <div class="text-secondary">12 đơn chờ thanh toán</div>
                                                 </div>
                                             </div>
                                         </div>
@@ -81,8 +81,8 @@
                                                         </svg></span>
                                                 </div>
                                                 <div class="col">
-                                                    <div class="font-weight-medium">78 Orders</div>
-                                                    <div class="text-secondary">32 shipped</div>
+                                                    <div class="font-weight-medium">78 Đơn hàng</div>
+                                                    <div class="text-secondary">32 đã gửi</div>
                                                 </div>
                                             </div>
                                         </div>
@@ -105,8 +105,8 @@
                                                         </svg></span>
                                                 </div>
                                                 <div class="col">
-                                                    <div class="font-weight-medium">623 Shares</div>
-                                                    <div class="text-secondary">16 today</div>
+                                                    <div class="font-weight-medium">623 Lượt chia sẻ</div>
+                                                    <div class="text-secondary">16 hôm nay</div>
                                                 </div>
                                             </div>
                                         </div>
@@ -129,8 +129,8 @@
                                                         </svg></span>
                                                 </div>
                                                 <div class="col">
-                                                    <div class="font-weight-medium">132 Likes</div>
-                                                    <div class="text-secondary">21 today</div>
+                                                    <div class="font-weight-medium">132 Lượt thích</div>
+                                                    <div class="text-secondary">21 hôm nay</div>
                                                 </div>
                                             </div>
                                         </div>

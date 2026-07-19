@@ -28,7 +28,7 @@
                                         </div>
                                         <div class="form-group">
                                             <button type="submit" class="btn btn-heading btn-block hover-up"
-                                                name="login">Đăng nhập</button>
+                                                name="login">Gửi liên kết đặt lại mật khẩu</button>
                                         </div>
                                     </form>
                                 </div>

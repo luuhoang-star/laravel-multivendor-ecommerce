@@ -1,8 +1,11 @@
+ @extends('frontend.dashboard.dashboard-app')
+
+@section('dashboard_contents')
  <div class="tab-pane fade" id="wishlist-tab" role="tabpanel"
                                         aria-labelledby="wishlist-detail-tab">
                                         <div class="card">
                                             <div class="card-header p-0">
-                                                <h4>Wishlist</h4>
+                                                <h4>Danh sách yêu thích</h4>
                                             </div>
                                             <div class="card-body p-0 mt-20">
                                                 <div class="table-responsive shopping-summery">
@@ -15,11 +18,11 @@
                                                                     <label class="form-check-label"
                                                                         for="exampleCheckbox11"></label>
                                                                 </th>
-                                                                <th scope="col" colspan="2">Product</th>
-                                                                <th scope="col">Price</th>
-                                                                <th scope="col">Stock Status</th>
-                                                                <th scope="col">Action</th>
-                                                                <th scope="col" class="end">Remove</th>
+                                                                <th scope="col" colspan="2">Sản phẩm</th>
+                                                                <th scope="col">Giá</th>
+                                                                <th scope="col">Tình trạng kho</th>
+                                                                <th scope="col">Thao tác</th>
+                                                                <th scope="col" class="end">Xóa</th>
                                                             </tr>
                                                         </thead>
                                                         <tbody>
@@ -46,17 +49,17 @@
                                                                             (4.0)</span>
                                                                     </div>
                                                                 </td>
-                                                                <td class="price" data-title="Price">
+                                                                <td class="price" data-title="Giá">
                                                                     <h3 class="text-brand">$2.51</h3>
                                                                 </td>
-                                                                <td class="text-center detail-info" data-title="Stock">
-                                                                    <span class="stock-status in-stock mb-0"> In Stock
+                                                                <td class="text-center detail-info" data-title="Kho hàng">
+                                                                    <span class="stock-status in-stock mb-0"> Còn hàng
                                                                     </span>
                                                                 </td>
-                                                                <td class="text-right" data-title="Cart">
-                                                                    <button class="btn btn-sm">Add to cart</button>
+                                                                <td class="text-right" data-title="Giỏ hàng">
+                                                                    <button class="btn btn-sm">Thêm vào giỏ hàng</button>
                                                                 </td>
-                                                                <td class="action text-center" data-title="Remove">
+                                                                <td class="action text-center" data-title="Xóa">
                                                                     <a href="#" class="text-body"><i
                                                                             class="fi-rs-trash"></i></a>
                                                                 </td>
@@ -84,17 +87,17 @@
                                                                             (4.0)</span>
                                                                     </div>
                                                                 </td>
-                                                                <td class="price" data-title="Price">
+                                                                <td class="price" data-title="Giá">
                                                                     <h3 class="text-brand">$3.2</h3>
                                                                 </td>
-                                                                <td class="text-center detail-info" data-title="Stock">
-                                                                    <span class="stock-status in-stock mb-0"> In Stock
+                                                                <td class="text-center detail-info" data-title="Kho hàng">
+                                                                    <span class="stock-status in-stock mb-0"> Còn hàng
                                                                     </span>
                                                                 </td>
-                                                                <td class="text-right" data-title="Cart">
-                                                                    <button class="btn btn-sm">Add to cart</button>
+                                                                <td class="text-right" data-title="Giỏ hàng">
+                                                                    <button class="btn btn-sm">Thêm vào giỏ hàng</button>
                                                                 </td>
-                                                                <td class="action text-center" data-title="Remove">
+                                                                <td class="action text-center" data-title="Xóa">
                                                                     <a href="#" class="text-body"><i
                                                                             class="fi-rs-trash"></i></a>
                                                                 </td>
@@ -122,17 +125,17 @@
                                                                             (4.0)</span>
                                                                     </div>
                                                                 </td>
-                                                                <td class="price" data-title="Price">
+                                                                <td class="price" data-title="Giá">
                                                                     <h3 class="text-brand">$2.43</h3>
                                                                 </td>
-                                                                <td class="text-center detail-info" data-title="Stock">
-                                                                    <span class="stock-status in-stock mb-0"> In Stock
+                                                                <td class="text-center detail-info" data-title="Kho hàng">
+                                                                    <span class="stock-status in-stock mb-0"> Còn hàng
                                                                     </span>
                                                                 </td>
-                                                                <td class="text-right" data-title="Cart">
-                                                                    <button class="btn btn-sm">Add to cart</button>
+                                                                <td class="text-right" data-title="Giỏ hàng">
+                                                                    <button class="btn btn-sm">Thêm vào giỏ hàng</button>
                                                                 </td>
-                                                                <td class="action text-center" data-title="Remove">
+                                                                <td class="action text-center" data-title="Xóa">
                                                                     <a href="#" class="text-body"><i
                                                                             class="fi-rs-trash"></i></a>
                                                                 </td>
@@ -160,18 +163,17 @@
                                                                             (4.0)</span>
                                                                     </div>
                                                                 </td>
-                                                                <td class="price" data-title="Price">
+                                                                <td class="price" data-title="Giá">
                                                                     <h3 class="text-brand">$3.21</h3>
                                                                 </td>
-                                                                <td class="text-center detail-info" data-title="Stock">
-                                                                    <span class="stock-status out-stock mb-0"> Out Stock
+                                                                <td class="text-center detail-info" data-title="Kho hàng">
+                                                                    <span class="stock-status out-stock mb-0"> Hết hàng
                                                                     </span>
                                                                 </td>
-                                                                <td class="text-right" data-title="Cart">
-                                                                    <button class="btn btn-sm btn-secondary">Contact
-                                                                        Us</button>
+                                                                <td class="text-right" data-title="Giỏ hàng">
+                                                                    <button class="btn btn-sm btn-secondary">Liên hệ</button>
                                                                 </td>
-                                                                <td class="action text-center" data-title="Remove">
+                                                                <td class="action text-center" data-title="Xóa">
                                                                     <a href="#" class="text-body"><i
                                                                             class="fi-rs-trash"></i></a>
                                                                 </td>
@@ -199,17 +201,17 @@
                                                                             (4.0)</span>
                                                                     </div>
                                                                 </td>
-                                                                <td class="price" data-title="Price">
+                                                                <td class="price" data-title="Giá">
                                                                     <h3 class="text-brand">$3.17</h3>
                                                                 </td>
-                                                                <td class="text-center detail-info" data-title="Stock">
-                                                                    <span class="stock-status in-stock mb-0"> In Stock
+                                                                <td class="text-center detail-info" data-title="Kho hàng">
+                                                                    <span class="stock-status in-stock mb-0"> Còn hàng
                                                                     </span>
                                                                 </td>
-                                                                <td class="text-right" data-title="Cart">
-                                                                    <button class="btn btn-sm">Add to cart</button>
+                                                                <td class="text-right" data-title="Giỏ hàng">
+                                                                    <button class="btn btn-sm">Thêm vào giỏ hàng</button>
                                                                 </td>
-                                                                <td class="action text-center" data-title="Remove">
+                                                                <td class="action text-center" data-title="Xóa">
                                                                     <a href="#" class="text-body"><i
                                                                             class="fi-rs-trash"></i></a>
                                                                 </td>
@@ -220,3 +222,4 @@
                                             </div>
                                         </div>
                                     </div>
+@endsection

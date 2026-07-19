@@ -1,8 +1,11 @@
+@extends('frontend.dashboard.dashboard-app')
+
+@section('dashboard_contents')
  <div class="tab-pane fade" id="address" role="tabpanel"
                                         aria-labelledby="address-tab">
                                         <div class="wsus__shipping_address mb_40">
-                                            <h4>Billing Address
-                                                <a href="dashboard_address_edit.html">add new address</a>
+                                            <h4>Địa chỉ thanh toán
+                                                <a href="dashboard_address_edit.html">thêm địa chỉ mới</a>
                                             </h4>
 
                                             <div class="row">
@@ -94,32 +97,32 @@
 
                                             <div class="panel-collapse collapse login_form" id="loginform">
                                                 <div class="panel-body">
-                                                    <h4>Add New Address</h4>
+                                                    <h4>Thêm địa chỉ mới</h4>
                                                     <form>
                                                         <div class="row mt-20">
                                                             <div class="col-md-12">
                                                                 <div class="form-group">
-                                                                    <input type="text" placeholder="Name ">
+                                                                    <input type="text" placeholder="Họ và tên">
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
-                                                                    <input type="email" placeholder="Email ">
+                                                                    <input type="email" placeholder="Email">
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
-                                                                    <input type="text" placeholder="Phone ">
+                                                                    <input type="text" placeholder="Số điện thoại">
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-12">
                                                                 <div class="form-group">
-                                                                    <textarea placeholder="Address" rows="3"></textarea>
+                                                                    <textarea placeholder="Địa chỉ" rows="3"></textarea>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                         <div class="form-group mb-0">
-                                                            <button class="btn btn-md" name="login">Save</button>
+                                                            <button class="btn btn-md" name="login">Lưu</button>
                                                         </div>
                                                     </form>
                                                 </div>
@@ -127,3 +130,4 @@
 
                                         </div>
                                     </div>
+@endsection

@@ -8,7 +8,7 @@
                                     <li>
                                         <a href="#">
                                             <img src="assets/imgs/theme/icons/category-1.svg" alt="" />
-                                            Men's Clothing
+                                            Thời trang nam
                                         </a>
                                         <ul>
                                             <li><a href="#">Menu 01</a></li>
@@ -21,7 +21,7 @@
                                     <li>
                                         <a href="#">
                                             <img src="assets/imgs/theme/icons/category-2.svg" alt="" />
-                                            Women's Clothing
+                                            Thời trang nữ
                                         </a>
                                         <ul>
                                             <li><a href="#">Menu 01</a></li>
@@ -34,7 +34,7 @@
                                     <li>
                                         <a href="#">
                                             <img src="assets/imgs/theme/icons/category-3.svg" alt="" />
-                                            Jewelry & Fashion
+                                            Trang sức & Thời trang
                                         </a>
                                         <ul>
                                             <li><a href="#">Menu 01</a></li>
@@ -47,7 +47,7 @@
                                     <li>
                                         <a href="#">
                                             <img src="assets/imgs/theme/icons/category-4.svg" alt="" />
-                                            Sports Apparel
+                                            Đồ thể thao
                                         </a>
                                         <ul>
                                             <li><a href="#">Menu 01</a></li>
@@ -60,7 +60,7 @@
                                     <li>
                                         <a href="#">
                                             <img src="assets/imgs/theme/icons/category-5.svg" alt="" />
-                                            Skincare
+                                            Chăm sóc da
                                         </a>
                                         <ul>
                                             <li><a href="#">Menu 01</a></li>
@@ -73,7 +73,7 @@
                                     <li>
                                         <a href="#">
                                             <img src="assets/imgs/theme/icons/category-6.svg" alt="" />
-                                            Exercise & Fitness
+                                            Thể dục & Thể hình
                                         </a>
                                         <ul>
                                             <li><a href="#">Menu 01</a></li>
@@ -86,7 +86,7 @@
                                     <li>
                                         <a href="#">
                                             <img src="assets/imgs/theme/icons/category-7.svg" alt="" />
-                                            Toys & Games
+                                            Đồ chơi & Trò chơi
                                         </a>
                                         <ul>
                                             <li><a href="#">Menu 01</a></li>
@@ -99,7 +99,7 @@
                                     <li>
                                         <a href="#">
                                             <img src="assets/imgs/theme/icons/category-8.svg" alt="" />
-                                            Sunglasses
+                                            Kính râm
                                         </a>
                                         <ul>
                                             <li><a href="#">Menu 01</a></li>
@@ -112,7 +112,7 @@
                                     <li>
                                         <a href="#">
                                             <img src="assets/imgs/theme/icons/category-9.svg" alt="" />
-                                            Denim Collection
+                                            Bộ sưu tập Denim
                                         </a>
                                         <ul>
                                             <li><a href="#">Menu 01</a></li>
@@ -125,7 +125,7 @@
                                     <li>
                                         <a href="#">
                                             <img src="assets/imgs/theme/icons/category-1.svg" alt="" />
-                                            Men's Clothing
+                                            Thời trang nam
                                         </a>
                                         <ul>
                                             <li><a href="#">Menu 01</a></li>
@@ -138,7 +138,7 @@
                                     <li>
                                         <a href="#">
                                             <img src="assets/imgs/theme/icons/category-2.svg" alt="" />
-                                            Women's Clothing
+                                            Thời trang nữ
                                         </a>
                                         <ul>
                                             <li><a href="#">Menu 01</a></li>
@@ -151,7 +151,7 @@
                                     <li>
                                         <a href="#">
                                             <img src="assets/imgs/theme/icons/category-3.svg" alt="" />
-                                            Jewelry & Fashion
+                                            Trang sức & Thời trang
                                         </a>
                                         <ul>
                                             <li><a href="#">Menu 01</a></li>
@@ -164,7 +164,7 @@
                                 </ul>
                             </div>
                             <a href="#" class="more_categories">
-                                view all
+                                xem tất cả
                                 <i class="fa-solid fa-arrow-right"></i>
                             </a>
                         </div>

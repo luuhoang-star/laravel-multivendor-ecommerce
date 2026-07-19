@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\Auth\PasswordController;
 use App\Http\Controllers\Admin\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Admin\Auth\RegisteredUserController;
 use App\Http\Controllers\Admin\Auth\VerifyEmailController;
+use App\Http\Controllers\Admin\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware('guest:admin') // middleware 'guest:admin sẽ kiểm tra xem người dùng có phải guard admin hay ko qua RedirectIfauthenticated, nếu là guard admin thì sẽ check xem người dùng đã đăng nhập chưa, nếu đã đăng nhập thì sẽ redirect về trang dashboard của admin, nếu chưa đăng nhập thì sẽ cho phép truy cập vào các route bên trong group này.
@@ -17,7 +18,7 @@ Route::middleware('guest:admin') // middleware 'guest:admin sẽ kiểm tra xem 
     ->group(function () {
 
         Route::get('login', [AuthenticatedSessionController::class, 'create'])
-                ->name('login');
+            ->name('login');
 
         Route::post('login', [AuthenticatedSessionController::class, 'store']);
 
@@ -35,30 +36,38 @@ Route::middleware('guest:admin') // middleware 'guest:admin sẽ kiểm tra xem 
     });
 
 Route::middleware('auth:admin') // middleware 'auth:admin' sẽ kiểm tra xem người dùng có phải guard admin hay ko qua Authenticate, nếu là guard admin thì sẽ check xem người dùng đã đăng nhập chưa, nếu chưa đăng nhập thì sẽ redirect về trang login của admin, nếu đã đăng nhập thì sẽ cho phép truy cập vào các route bên trong group này.
-->prefix('admin')
-->as('admin.')
-->group(function () {
-    Route::get('verify-email', EmailVerificationPromptController::class)
-        ->name('verification.notice');
+    ->prefix('admin')
+    ->as('admin.')
+    ->group(function () {
+        Route::get('verify-email', EmailVerificationPromptController::class)
+            ->name('verification.notice');
 
-    Route::get('verify-email/{id}/{hash}', VerifyEmailController::class)
-        ->middleware(['signed', 'throttle:6,1'])
-        ->name('verification.verify');
+        Route::get('verify-email/{id}/{hash}', VerifyEmailController::class)
+            ->middleware(['signed', 'throttle:6,1'])
+            ->name('verification.verify');
 
-    Route::post('email/verification-notification', [EmailVerificationNotificationController::class, 'store'])
-        ->middleware('throttle:6,1')
-        ->name('verification.send');
+        Route::post('email/verification-notification', [EmailVerificationNotificationController::class, 'store'])
+            ->middleware('throttle:6,1')
+            ->name('verification.send');
 
-    Route::get('confirm-password', [ConfirmablePasswordController::class, 'show'])
-        ->name('password.confirm');
+        Route::get('confirm-password', [ConfirmablePasswordController::class, 'show'])
+            ->name('password.confirm');
 
-    Route::post('confirm-password', [ConfirmablePasswordController::class, 'store']);
+        Route::post('confirm-password', [ConfirmablePasswordController::class, 'store']);
 
-    Route::put('password', [PasswordController::class, 'update'])->name('password.update');
+        Route::put('password', [PasswordController::class, 'update'])->name('password.update');
 
-    Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])
-        ->name('logout');
-});
+        Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])
+            ->name('logout');
+
+        Route::get('profile', [ProfileController::class, 'index'])
+            ->name('profile.index');
+
+        Route::put('profile/update',[ProfileController::class, 'profileUpdate'])->name('profile.update');
+        Route::put('/password/update', [ProfileController::class, 'passwordUpdate'])->name('profile.password.update');
+    });
+
+
 
 Route::get('/admin/dashboard', function () {
     return view('admin.dashboard.index');

@@ -34,7 +34,7 @@
                                    <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
                                    <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
                                </svg></span>
-                           <span class="nav-link-title"> Home </span>
+                           <span class="nav-link-title"> Trang chủ </span>
                        </a>
                    </li>
                    <li class="nav-item dropdown">
@@ -51,7 +51,7 @@
                                    <path d="M16 5.25l-8 4.5" />
                                </svg>
                            </span>
-                           <span class="nav-link-title"> Interface </span>
+                           <span class="nav-link-title"> Giao diện </span>
                        </a>
                        <div class="dropdown-menu">
                            <div class="dropdown-menu-columns">
@@ -64,10 +64,10 @@
                                        <a class="dropdown-item dropdown-toggle" href="#sidebar-authentication"
                                            data-bs-toggle="dropdown" data-bs-auto-close="false" role="button"
                                            aria-expanded="false">
-                                           Authentication
+                                           Xác thực
                                        </a>
                                        <div class="dropdown-menu">
-                                           <a href="./sign-in.html" class="dropdown-item"> Sign in </a>
+                                           <a href="./sign-in.html" class="dropdown-item"> Đăng nhập </a>
 
                                        </div>
                                    </div>
@@ -93,8 +93,8 @@
                <div class="d-none d-md-flex">
                    <div class="nav-item">
                        <a href="?theme=dark" class="nav-link px-0 hide-theme-dark" data-bs-toggle="tooltip"
-                           data-bs-placement="bottom" aria-label="Enable dark mode"
-                           data-bs-original-title="Enable dark mode">
+                           data-bs-placement="bottom" aria-label="Kích hoạt chế độ tối"
+                           data-bs-original-title="Kích hoạt chế độ tối">
                            <!-- Download SVG icon from http://tabler.io/icons/icon/moon -->
                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -104,8 +104,8 @@
                            </svg>
                        </a>
                        <a href="?theme=light" class="nav-link px-0 hide-theme-light" data-bs-toggle="tooltip"
-                           data-bs-placement="bottom" aria-label="Enable light mode"
-                           data-bs-original-title="Enable light mode">
+                           data-bs-placement="bottom" aria-label="Kích hoạt chế độ sáng"
+                           data-bs-original-title="Kích hoạt chế độ sáng">
                            <!-- Download SVG icon from http://tabler.io/icons/icon/sun -->
                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -119,7 +119,7 @@
                    </div>
                    <div class="nav-item dropdown d-none d-md-flex">
                        <a href="#" class="nav-link px-0" data-bs-toggle="dropdown" tabindex="-1"
-                           aria-label="Show notifications" data-bs-auto-close="outside" aria-expanded="false">
+                           aria-label="Hiển thị thông báo" data-bs-auto-close="outside" aria-expanded="false">
                            <!-- Download SVG icon from http://tabler.io/icons/icon/bell -->
                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -135,7 +135,7 @@
                    </div>
                    <div class="nav-item dropdown d-none d-md-flex me-3">
                        <a href="#" class="nav-link px-0" data-bs-toggle="dropdown" tabindex="-1"
-                           aria-label="Show app menu" data-bs-auto-close="outside" aria-expanded="false">
+                           aria-label="Hiển thị menu ứng dụng" data-bs-auto-close="outside" aria-expanded="false">
                            <!-- Download SVG icon from http://tabler.io/icons/icon/apps -->
                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -155,7 +155,7 @@
                </div>
                <div class="nav-item dropdown">
                    <a href="#" class="nav-link d-flex lh-1 p-0 px-2" data-bs-toggle="dropdown"
-                       aria-label="Open user menu">
+                       aria-label="Mở menu người dùng">
                        <span class="avatar avatar-sm" style="background-image: url(./static/avatars/000m.jpg)">
                        </span>
                        <div class="d-none d-xl-block ps-2">
@@ -164,11 +164,11 @@
                        </div>
                    </a>
                    <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                       <a href="#" class="dropdown-item">Status</a>
-                       <a href="./profile.html" class="dropdown-item">Profile</a>
-                       <a href="#" class="dropdown-item">Feedback</a>
+                       <a href="#" class="dropdown-item">Trạng thái</a>
+                       <a href="{{ route('admin.profile.index') }}">Hồ sơ cá nhân</a>
+                       <a href="#" class="dropdown-item">Góp ý</a>
                        <div class="dropdown-divider"></div>
-                       <a href="./settings.html" class="dropdown-item">Settings</a>
+                       <a href="./settings.html" class="dropdown-item">Cài đặt</a>
                        <a href="" class="dropdown-item"
                            onclick="event.preventDefault(); $('.logout-form').submit();">
                            Đăng xuất

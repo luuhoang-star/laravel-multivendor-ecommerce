@@ -26,7 +26,7 @@
                                         </div>
 
                                         <div class="form-group">
-                                            <input type="password" required="" name="password" placeholder="Password*">
+                                            <input type="password" required="" name="password" placeholder="Mật khẩu*">
                                             <x-input-error :messages="$errors->get('password')" class="mt-2" />
                                         </div>
 

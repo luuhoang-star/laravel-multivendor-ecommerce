@@ -61,10 +61,10 @@
                                 </span>
                             </label>
                             <div class="input-group input-group-flat">
-                                <input type="password" name="password" class="form-control" placeholder="Your password"
+                                <input type="password" name="password" class="form-control" placeholder="Mật khẩu của bạn"
                                     autocomplete="off" />
                                 <span class="input-group-text">
-                                    <a href="#" class="link-secondary" title="Show password"
+                                    <a href="#" class="link-secondary" title="Hiển thị mật khẩu"
                                         data-bs-toggle="tooltip"><!-- Download SVG icon from http://tabler.io/icons/icon/eye -->
                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
