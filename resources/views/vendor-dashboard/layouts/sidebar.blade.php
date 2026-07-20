@@ -150,34 +150,37 @@
                                <path d="M17 4l0 6"></path>
                            </svg>
                        </a>
-
+                       <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                           <a href="#" class="dropdown-item">One</a>
+                           <a href="#" class="dropdown-item">Two</a>
+                       </div>
                    </div>
-               </div>
-                <div class="nav-item dropdown">
+                        <div class="nav-item dropdown">
                     <a href="#" class="nav-link d-flex lh-1 p-0 px-2" data-bs-toggle="dropdown"
                         aria-label="Mở menu người dùng">
-                        <span class="avatar avatar-sm" style="background-image: url({{ auth('admin')->user()->avatar ? asset(auth('admin')->user()->avatar) : 'https://www.gravatar.com/avatar/' . md5(strtolower(trim(auth('admin')->user()->email))) . '?d=mp' }})">
+                        <span class="avatar avatar-sm" style="background-image: url({{ auth()->user()->avatar ? asset(auth()->user()->avatar) : 'https://www.gravatar.com/avatar/' . md5(strtolower(trim(auth()->user()->email))) . '?d=mp' }})">
                         </span>
                         <div class="d-none d-xl-block ps-2">
-                            <div>{{ auth('admin')->user()->name }}</div>
-                            <div class="mt-1 small text-secondary">Admin</div>
+                            <div>{{ auth()->user()->name }}</div>
+                            <div class="mt-1 small text-secondary">Vendor</div>
                         </div>
                     </a>
-                   <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                       <a href="#" class="dropdown-item">Trạng thái</a>
-                       <a href="{{ route('admin.profile.index') }}">Hồ sơ cá nhân</a>
-                       <a href="#" class="dropdown-item">Góp ý</a>
-                       <div class="dropdown-divider"></div>
-                       <a href="./settings.html" class="dropdown-item">Cài đặt</a>
-                       <a href="" class="dropdown-item"
-                           onclick="event.preventDefault(); $('.logout-form').submit();">
-                           Đăng xuất
-                       </a>
+                    <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                        <a href="#" class="dropdown-item">Trạng thái</a>
+                        <a href="{{ route('profile') }}">Hồ sơ cá nhân</a>
+                        <a href="#" class="dropdown-item">Góp ý</a>
+                        <div class="dropdown-divider"></div>
+                        <a href="./settings.html" class="dropdown-item">Cài đặt</a>
+                        <a href="" class="dropdown-item"
+                            onclick="event.preventDefault(); $('.logout-form').submit();">
+                            Đăng xuất
+                        </a>
 
-                       <form method="POST" action="{{ route('admin.logout') }}" class="logout-form">
-                           @csrf
-                       </form>
-                   </div>
+                        <form method="POST" action="{{ route('logout') }}" class="logout-form">
+                            @csrf
+                        </form>
+                    </div>
+                </div>
                </div>
            </div>
            <div class="collapse navbar-collapse" id="navbar-menu">
