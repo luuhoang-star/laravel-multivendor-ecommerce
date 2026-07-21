@@ -1,5 +1,5 @@
 <?php
-namespace App\Service;
+namespace App\Services;
 
 class AlertService {
     public static function updated($message = null) {

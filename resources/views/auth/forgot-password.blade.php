@@ -17,8 +17,7 @@
                                 <div class="padding_eight_all bg-white">
                                     <div class="heading_s1">
                                         <h1 class="mb-5">Quên mật khẩu</h1>
-                                        <p class="mb-30">{{ __('Quên mật khẩu? Không vấn đề gì. Hãy cho chúng tôi biết địa chỉ email của bạn và chúng tôi sẽ gửi cho bạn một liên kết đặt lại mật khẩu để bạn có thể chọn mật khẩu mới.') }}
-                                               ></p>
+                                        <p class="mb-30">{{ __('Quên mật khẩu? Không vấn đề gì. Hãy cho chúng tôi biết địa chỉ email của bạn và chúng tôi sẽ gửi cho bạn một liên kết đặt lại mật khẩu để bạn có thể chọn mật khẩu mới.') }}</p>
                                     </div>
                                     <form method="post" action="{{ route('password.email') }}">
                                         <div class="form-group">

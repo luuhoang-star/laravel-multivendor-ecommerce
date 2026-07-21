@@ -32,116 +32,132 @@
 
 @section('contents')
     <div class="page-body">
-                <div class="container-xl">
-                    <div class="row row-deck row-cards">
+        <div class="container-xl">
+            @if (auth()->user()->kyc?->status == 'pending')
+                <div class="alert alert-warning" role="alert">
+                    <h4 class="alert-title">Yêu cầu KYC của bạn đang chờ duyệt</h4>
+                    <div class="text-secondary">Vui lòng chờ quản trị viên phê duyệt thông tin KYC của bạn.</div>
+                </div>
+            @endif
 
-                        <div class="col-12">
-                            <div class="row row-cards">
-                                <div class="col-sm-6 col-lg-3">
-                                    <div class="card card-sm">
-                                        <div class="card-body">
-                                            <div class="row align-items-center">
-                                                <div class="col-auto">
-                                                    <span
-                                                        class="bg-primary text-white avatar"><!-- Download SVG icon from http://tabler.io/icons/icon/currency-dollar -->
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24"
-                                                            height="24" viewBox="0 0 24 24" fill="none"
-                                                            stroke="currentColor" stroke-width="2"
-                                                            stroke-linecap="round" stroke-linejoin="round"
-                                                            class="icon icon-1">
-                                                            <path
-                                                                d="M16.7 8a3 3 0 0 0 -2.7 -2h-4a3 3 0 0 0 0 6h4a3 3 0 0 1 0 6h-4a3 3 0 0 1 -2.7 -2" />
-                                                            <path d="M12 3v3m0 12v3" />
-                                                        </svg></span>
-                                                </div>
-                                                <div class="col">
-                                                    <div class="font-weight-medium">132 Doanh số</div>
-                                                    <div class="text-secondary">12 đơn chờ thanh toán</div>
-                                                </div>
-                                            </div>
+            @if (auth()->user()->kyc?->status == null || auth()->user()->kyc?->status == 'rejected')
+                <div class="alert alert-danger d-flex justify-content-between align-items-center w-100" role="alert">
+                    <div>
+                        <h4 class="alert-title">Xác minh KYC của bạn</h4>
+                        <div class="text-secondary">Vui lòng hoàn thành xác minh KYC để bắt đầu sử dụng đầy đủ tính năng của hệ thống.</div>
+                    </div>
+                    <div>
+                        <a href="{{ route('kyc.index') }}" class="btn btn-white">
+                            Xác minh ngay
+                        </a>
+                    </div>
+                </div>
+            @endif
+            <div class="row row-deck row-cards">
+
+                <div class="col-12">
+                    <div class="row row-cards">
+                        <div class="col-sm-6 col-lg-3">
+                            <div class="card card-sm">
+                                <div class="card-body">
+                                    <div class="row align-items-center">
+                                        <div class="col-auto">
+                                            <span
+                                                class="bg-primary text-white avatar"><!-- Download SVG icon from http://tabler.io/icons/icon/currency-dollar -->
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                                    class="icon icon-1">
+                                                    <path
+                                                        d="M16.7 8a3 3 0 0 0 -2.7 -2h-4a3 3 0 0 0 0 6h4a3 3 0 0 1 0 6h-4a3 3 0 0 1 -2.7 -2" />
+                                                    <path d="M12 3v3m0 12v3" />
+                                                </svg></span>
                                         </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6 col-lg-3">
-                                    <div class="card card-sm">
-                                        <div class="card-body">
-                                            <div class="row align-items-center">
-                                                <div class="col-auto">
-                                                    <span
-                                                        class="bg-green text-white avatar"><!-- Download SVG icon from http://tabler.io/icons/icon/shopping-cart -->
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24"
-                                                            height="24" viewBox="0 0 24 24" fill="none"
-                                                            stroke="currentColor" stroke-width="2"
-                                                            stroke-linecap="round" stroke-linejoin="round"
-                                                            class="icon icon-1">
-                                                            <path d="M6 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
-                                                            <path d="M17 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
-                                                            <path d="M17 17h-11v-14h-2" />
-                                                            <path d="M6 5l14 1l-1 7h-13" />
-                                                        </svg></span>
-                                                </div>
-                                                <div class="col">
-                                                    <div class="font-weight-medium">78 Đơn hàng</div>
-                                                    <div class="text-secondary">32 đã gửi</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6 col-lg-3">
-                                    <div class="card card-sm">
-                                        <div class="card-body">
-                                            <div class="row align-items-center">
-                                                <div class="col-auto">
-                                                    <span
-                                                        class="bg-x text-white avatar"><!-- Download SVG icon from http://tabler.io/icons/icon/brand-x -->
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24"
-                                                            height="24" viewBox="0 0 24 24" fill="none"
-                                                            stroke="currentColor" stroke-width="2"
-                                                            stroke-linecap="round" stroke-linejoin="round"
-                                                            class="icon icon-1">
-                                                            <path d="M4 4l11.733 16h4.267l-11.733 -16z" />
-                                                            <path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772" />
-                                                        </svg></span>
-                                                </div>
-                                                <div class="col">
-                                                    <div class="font-weight-medium">623 Lượt chia sẻ</div>
-                                                    <div class="text-secondary">16 hôm nay</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6 col-lg-3">
-                                    <div class="card card-sm">
-                                        <div class="card-body">
-                                            <div class="row align-items-center">
-                                                <div class="col-auto">
-                                                    <span
-                                                        class="bg-facebook text-white avatar"><!-- Download SVG icon from http://tabler.io/icons/icon/brand-facebook -->
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24"
-                                                            height="24" viewBox="0 0 24 24" fill="none"
-                                                            stroke="currentColor" stroke-width="2"
-                                                            stroke-linecap="round" stroke-linejoin="round"
-                                                            class="icon icon-1">
-                                                            <path
-                                                                d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3" />
-                                                        </svg></span>
-                                                </div>
-                                                <div class="col">
-                                                    <div class="font-weight-medium">132 Lượt thích</div>
-                                                    <div class="text-secondary">21 hôm nay</div>
-                                                </div>
-                                            </div>
+                                        <div class="col">
+                                            <div class="font-weight-medium">132 Doanh số</div>
+                                            <div class="text-secondary">12 đơn chờ thanh toán</div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-
-
-
+                        <div class="col-sm-6 col-lg-3">
+                            <div class="card card-sm">
+                                <div class="card-body">
+                                    <div class="row align-items-center">
+                                        <div class="col-auto">
+                                            <span
+                                                class="bg-green text-white avatar"><!-- Download SVG icon from http://tabler.io/icons/icon/shopping-cart -->
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                                    class="icon icon-1">
+                                                    <path d="M6 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
+                                                    <path d="M17 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
+                                                    <path d="M17 17h-11v-14h-2" />
+                                                    <path d="M6 5l14 1l-1 7h-13" />
+                                                </svg></span>
+                                        </div>
+                                        <div class="col">
+                                            <div class="font-weight-medium">78 Đơn hàng</div>
+                                            <div class="text-secondary">32 đã gửi</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-3">
+                            <div class="card card-sm">
+                                <div class="card-body">
+                                    <div class="row align-items-center">
+                                        <div class="col-auto">
+                                            <span
+                                                class="bg-x text-white avatar"><!-- Download SVG icon from http://tabler.io/icons/icon/brand-x -->
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                                    class="icon icon-1">
+                                                    <path d="M4 4l11.733 16h4.267l-11.733 -16z" />
+                                                    <path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772" />
+                                                </svg></span>
+                                        </div>
+                                        <div class="col">
+                                            <div class="font-weight-medium">623 Lượt chia sẻ</div>
+                                            <div class="text-secondary">16 hôm nay</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-3">
+                            <div class="card card-sm">
+                                <div class="card-body">
+                                    <div class="row align-items-center">
+                                        <div class="col-auto">
+                                            <span
+                                                class="bg-facebook text-white avatar"><!-- Download SVG icon from http://tabler.io/icons/icon/brand-facebook -->
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                                    class="icon icon-1">
+                                                    <path
+                                                        d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3" />
+                                                </svg></span>
+                                        </div>
+                                        <div class="col">
+                                            <div class="font-weight-medium">132 Lượt thích</div>
+                                            <div class="text-secondary">21 hôm nay</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
+
+
+
             </div>
+        </div>
+    </div>
 @endsection

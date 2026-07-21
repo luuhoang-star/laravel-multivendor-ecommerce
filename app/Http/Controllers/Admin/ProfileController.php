@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Traits\FileUploadTrait;
-use App\Service\AlertService;
+use App\Services\AlertService;
 use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
 

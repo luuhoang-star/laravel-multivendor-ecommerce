@@ -18,6 +18,8 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <link rel="stylesheet" href="{{ asset('assets/global/upload-preview/upload-preview.css') }}?v={{ filemtime(public_path('assets/global/upload-preview/upload-preview.css')) }}"> <!--nạp file CSS để tạo giao diện -->
+    <link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.10.0/css/bootstrap-datepicker.min.css">
     <!-- Template CSS -->
     <link rel="stylesheet" href="{{ asset('assets/frontend/dist/css/main.css') }}" />
 
@@ -167,7 +169,8 @@
     <script src="{{ asset('assets/frontend/dist/js/plugins/leaflet.js') }}"></script>
     <script src="{{ asset('assets/frontend/dist/js/plugins/TweenMax.min.js') }}"></script>
     <script src="{{ asset('assets/global/upload-preview/upload-preview.min.js') }}?v={{ filemtime(public_path('assets/global/upload-preview/upload-preview.min.js')) }}"></script> <!-- nạp file js (plugin) để sử dụng chức năng-->
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.10.0/js/bootstrap-datepicker.min.js"></script>
+    <script src="{{ asset('assets/frontend/dist/js/frontend.js') }}"></script> <!-- khởi tạo DatePicker qua css vs js để hiện lịch chọn ok-->
     <!-- Template JS -->
     <script src="{{ asset('assets/frontend/dist/js/main.js') }}"></script>
     <script src="{{ asset('assets/frontend/dist/js/shop.js') }}"></script>

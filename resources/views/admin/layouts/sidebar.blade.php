@@ -75,6 +75,27 @@
                            </div> <!-- Đóng dropdown-menu-columns -->
                        </div> <!-- Đóng dropdown-menu -->
                    </li> <!-- Đóng li -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#navbar-kyc" data-bs-toggle="dropdown"
+                            data-bs-auto-close="false" role="button" aria-expanded="false">
+                            <span class="nav-link-title"> Yêu cầu KYC </span>
+                        </a>
+                        <div class="dropdown-menu">
+                            <div class="dropdown-menu-columns">
+                                <div class="dropdown-menu-column">
+                                    <a class="dropdown-item" href="{{ route('admin.kyc.index') }}">
+                                        Tất cả yêu cầu
+                                    </a>
+                                    <a class="dropdown-item" href="{{ route('admin.kyc.pending') }}">
+                                        Yêu cầu chờ duyệt
+                                    </a>
+                                    <a class="dropdown-item" href="{{ route('admin.kyc.rejected') }}">
+                                        Yêu cầu bị từ chối
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
 
                </ul>
                <!-- END NAVBAR MENU -->

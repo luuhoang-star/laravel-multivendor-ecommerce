@@ -45,4 +45,23 @@ trait FileUploadTrait
         // Trả về đường dẫn để lưu vào database
         return $path . '/' . $filename;
     }
+
+    public function uploadPrivateFile(UploadedFile $file, ?string $oldPath = null, ?string $path = 'uploads'): ?string
+    {
+        if (!$file->isValid()) {
+            return null;
+        }
+
+        // $ignorePath = ['/default/avatar.png'];
+
+        // if ($oldPath && File::exists(public_path($oldPath)) && !in_array($oldPath, $ignorePath)) {
+        //     File::delete(public_path($oldPath));
+        // }
+
+        $filename = Str::uuid() . '.' . $file->getClientOriginalExtension();
+
+        $path = $file->storeAs($path, $filename, 'local');
+
+        return $path;
+    }
 }

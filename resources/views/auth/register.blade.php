@@ -1,7 +1,7 @@
 @extends('frontend.layouts.app')
 
 @section('contents')
-    <x-frontend.breadcrumb :items="[['label' => 'Home', 'url' => '/'], ['label' => 'Register']]" />
+    <x-frontend.breadcrumb :items="[['label' => 'Trang chủ', 'url' => '/'], ['label' => 'Đăng ký']]" />
 
     <div class="page-content pt-150 pb-140">
         <div class="container">
@@ -12,31 +12,31 @@
                             <div class="login_wrap widget-taber-content background-white">
                                 <div class="padding_eight_all bg-white">
                                     <div class="heading_s1">
-                                        <h2 class="mb-5">Create an Account</h2>
-                                        <p class="mb-30">Already have an account? <a href="{{ route('login') }}">Login</a>
+                                        <h2 class="mb-5">Tạo tài khoản</h2>
+                                        <p class="mb-30">Đã có tài khoản? <a href="{{ route('login') }}">Đăng nhập</a>
                                         </p>
                                     </div>
                                     <form method="POST" action="{{ route('register') }}">
                                         @csrf
 
                                         <div class="form-group">
-                                            <input type="text" required="" name="name" placeholder="Name"
+                                            <input type="text" required="" name="name" placeholder="Họ và tên"
                                                 value="{{ old('name') }}" />
                                             <x-input-error :messages="$errors->get('name')" class="mt-2" />
                                         </div>
 
                                         <div class="form-group">
-                                            <input type="email" required="" name="email" placeholder="Email"
+                                            <input type="email" required="" name="email" placeholder="Địa chỉ Email"
                                                 value="{{ old('email') }}" />
                                             <x-input-error :messages="$errors->get('email')" class="mt-2" />
                                         </div>
                                         <div class="form-group">
-                                            <input required="" type="password" name="password" placeholder="Password" />
+                                            <input required="" type="password" name="password" placeholder="Mật khẩu" />
                                             <x-input-error :messages="$errors->get('password')" class="mt-2" />
                                         </div>
                                         <div class="form-group">
                                             <input required="" type="password" name="password_confirmation"
-                                                placeholder="Confirm password" />
+                                                placeholder="Xác nhận mật khẩu" />
                                             <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
                                         </div>
 
@@ -46,20 +46,20 @@
                                                     name="user_type" id="exampleRadios3" checked="" value="user" />
                                                 <label class="form-check-label" for="exampleRadios3"
                                                     data-bs-toggle="collapse" data-target="#bankTranfer"
-                                                    aria-controls="bankTranfer">I am a customer</label>
+                                                    aria-controls="bankTranfer">Tôi là khách hàng</label>
                                             </div>
                                             <div class="custome-radio">
                                                 <input class="form-check-input" required="" type="radio"
                                                     name="user_type" id="exampleRadios4" checked="" value="vendor" />
                                                 <label class="form-check-label" for="exampleRadios4"
                                                     data-bs-toggle="collapse" data-target="#checkPayment"
-                                                    aria-controls="checkPayment">I am a vendor</label>
+                                                    aria-controls="checkPayment">Tôi là người bán</label>
                                             </div>
                                         </div>
                                         <div class="form-group mb-0">
                                             <button type="submit"
                                                 class="btn btn-fill-out btn-block hover-up font-weight-bold"
-                                                name="login">Submit &amp; Register</button>
+                                                name="login">Gửi &amp; Đăng ký</button>
                                         </div>
                                     </form>
                                 </div>
