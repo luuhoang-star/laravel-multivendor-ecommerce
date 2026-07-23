@@ -12,7 +12,16 @@
                     @csrf
                     @method('PUT')
                     <div class="row mt-30">
-                        <x-input-image id="image-preview" name="avatar" :image="auth('web')->user()->avatar" />
+                        <div class="col-md-12 mb-3">
+                            <x-input-image 
+                                imageUploadId="image-upload" 
+                                imagePreviewId="image-preview" 
+                                imageLabelId="image-label" 
+                                name="avatar" 
+                                :image="auth('web')->user()->avatar ? asset(auth('web')->user()->avatar) : asset('defaults/avatar.png')" 
+                            />
+                            <x-input-error :messages="$errors->get('avatar')" class="mt-2" />
+                        </div>
                         <div class="form-group col-md-12">
                             <label>Họ và tên <span class="required">*</span></label>
                             <input required="" class="form-control" name="name" type="text"

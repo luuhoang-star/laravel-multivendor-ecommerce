@@ -1,10 +1,19 @@
-@props(['id', 'name', 'image'])
+@props([
+    'name',
+    'image' => null,
+    'imageUploadId' => 'image-upload',
+    'imagePreviewId' => 'image-preview',
+    'imageLabelId' => 'image-label',
+])
 
-<div {{ $attributes->merge([
-    'id' => $id,
-    'class' => 'ms-2 mb-3',
-]) }}
-    style="background-image: url('{{ $image ? asset($image) : '' }}'); background-size: cover;">
-    <label for="image-upload" id="image-label">Chọn file</label>
-    <input type="file" name="{{ $name }}" id="image-upload">
+@php
+    $defaultAvatar = asset('defaults/avatar.png');
+    $imageUrl = $image ? (str_starts_with($image, 'http') ? $image : asset($image)) : $defaultAvatar;
+@endphp
+
+<div id="{{ $imagePreviewId }}" 
+     style="background-image: url('{{ $imageUrl }}'); background-size: cover; background-position: center;" 
+     {{ $attributes->merge(['class' => 'image-preview mb-3']) }}>
+    <label for="{{ $imageUploadId }}" id="{{ $imageLabelId }}">Chọn ảnh</label>
+    <input type="file" name="{{ $name }}" id="{{ $imageUploadId }}" />
 </div>

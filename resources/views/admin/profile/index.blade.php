@@ -16,11 +16,14 @@
                     @method('PUT')
                     <div class="row">
                         <div class="col-md-6 mb-3">
-                            <x-input-image id="image-preview" name="avatar" :image="auth('admin')->user()->avatar" />
-                            <label class="form-label">Họ tên</label>
-                            <input type="text" class="form-control" name="name"
-                                value="{{ auth('admin')->user()->name }}">
-                            <x-input-error :messages="$errors->get('name')" />
+                            <x-input-image 
+                                imageUploadId="image-upload" 
+                                imagePreviewId="image-preview" 
+                                imageLabelId="image-label" 
+                                name="avatar" 
+                                :image="auth('admin')->user()->avatar ? asset(auth('admin')->user()->avatar) : asset('defaults/avatar.png')" 
+                            />
+                            <x-input-error :messages="$errors->get('avatar')" />
 
                         </div>
 

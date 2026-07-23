@@ -74,6 +74,8 @@
     <script src="{{ asset('assets/global/upload-preview/upload-preview.min.js') }}"></script>
     @stack('scripts')
     <script src="{{ asset('assets/admin/dist/js/tabler.min.js') }}"></script>
+    <script src="{{ asset('assets/admin/dist/js/tinymce/tinymce.min.js') }}"></script>
+    @include('admin.layouts.scripts')
 
 </body>
 

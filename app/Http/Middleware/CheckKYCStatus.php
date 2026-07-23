@@ -10,15 +10,15 @@ class CheckKYCStatus
 {
     public function handle(Request $request, Closure $next): Response
     {
-        $user = auth()->user();
-
-        // Đang chờ duyệt
-        if ($user->kyc?->status == 'pending') {
-            return redirect()->route('vendor.dashboard');
+        // Tránh vòng lặp chuyển hướng khi người dùng đã ở trang vendor.dashboard
+        if ($request->routeIs('vendor.dashboard')) {
+            return $next($request);
         }
 
-        // Đã duyệt
-        if ($user->kyc?->status == 'approved') {
+        $user = auth()->user();
+
+        // Nếu đã gửi KYC (chờ duyệt hoặc đã duyệt), chuyển hướng về vendor.dashboard
+        if (in_array($user->kyc?->status, ['pending', 'approved'])) {
             return redirect()->route('vendor.dashboard');
         }
 

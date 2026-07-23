@@ -34,7 +34,7 @@ class RedirectIfAuthenticated
      *
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
-    public function handle(Request $request, Closure $next, string ...$guards): Response
+    public function handle(Request $request, Closure $next, string|null ...$guards): Response
     {
         $guards = empty($guards) ? [null] : $guards;
 
@@ -50,7 +50,7 @@ class RedirectIfAuthenticated
     /**
      * Get the path the user should be redirected to when they are authenticated.
      */
-    protected function redirectTo(Request $request, ?string $guard = 'web'): ?string
+    protected function redirectTo(Request $request, string|null $guard = 'web'): ?string
     {
         $guard = $guard ?? 'web';
         return static::$redirectToCallback
@@ -61,14 +61,22 @@ class RedirectIfAuthenticated
     /**
      * Get the default URI the user should be redirected to when they are authenticated.
      */
-    protected function defaultRedirectUri(string $guard): string
+    protected function defaultRedirectUri(string|null $guard): string
     {
-        if($guard == 'admin') {
-            return route('admin.dashboard'); 
+        if ($guard === 'admin') {
+            return route('admin.dashboard');
         }
-        if($guard == 'web') {
-            return route('dashboard'); 
+
+        if ($guard === 'web') {
+            $user = Auth::guard('web')->user();
+
+            if ($user && $user->user_type === 'vendor') {
+                return route('vendor.dashboard');
+            }
+
+            return route('dashboard');
         }
+
         return '/';
     }
 

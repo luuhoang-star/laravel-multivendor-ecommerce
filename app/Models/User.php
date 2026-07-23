@@ -53,4 +53,9 @@ class User extends Authenticatable
     {
         return $this->hasOne(KYC::class); //HasOne giúp lấy bản ghi KYC bằng user->kyc.
     }
+
+    public function store(): HasOne
+    {
+        return $this->hasOne(Store::class, 'seller_id');
+    }
 }

@@ -10,4 +10,8 @@ class AlertService {
     public static function created($message = null) {
         notyf()->success($message ? $message : 'Tạo thành công.');
     }
+
+    public static function error($message = null) {
+        notyf()->error($message ? $message : 'Có lỗi xảy ra, vui lòng thử lại.');
+    }
 }

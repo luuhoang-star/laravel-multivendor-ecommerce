@@ -7,6 +7,7 @@ use Illuminate\Foundation\Configuration\Middleware;
 use Illuminate\Http\Request;
 use App\Http\Middleware\RedirectIfAuthenticated;
 use App\Http\Middleware\CheckKYCStatus;
+use App\Http\Middleware\Role;
 
 return Application::configure(basePath: dirname(__DIR__))
     ->withRouting( //withRouting() dùng để đăng ký những file route mà Laravel cần đọc khi khởi động.
@@ -23,6 +24,7 @@ return Application::configure(basePath: dirname(__DIR__))
             'auth' => Authenticate::class, // Đăng ký middleware "auth" với lớp Authenticate. Khi một route sử dụng middleware "auth", nó sẽ kiểm tra xem người dùng đã xác thực hay chưa. Nếu chưa xác thực, người dùng sẽ được chuyển hướng đến trang đăng nhập.
             'guest' => RedirectIfAuthenticated::class, // Đăng ký middleware "guest" với lớp RedirectIfAuthenticated. Khi một route sử dụng middleware "guest", nó sẽ kiểm tra xem người dùng đã xác thực hay chưa. Nếu đã xác thực, người dùng sẽ được chuyển hướng đến một trang khác (thường là trang chủ hoặc bảng điều khiển).
             'kyc.verified' => CheckKYCStatus::class,
+            'role' => Role::class,
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {

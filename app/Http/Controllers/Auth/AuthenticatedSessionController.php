@@ -28,8 +28,12 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
-        if (auth()->user()->user_type == 'vendor') {
-            return redirect()->intended(route('vendor.dashboard'));
+        $user = auth()->user();
+
+        // Chuyển hướng người dùng dựa trên vai trò (user_type)
+        if ($user->user_type === 'vendor') {
+            $request->session()->forget('url.intended');
+            return redirect()->route('vendor.dashboard');
         }
 
         return redirect()->intended(route('dashboard', absolute: false));

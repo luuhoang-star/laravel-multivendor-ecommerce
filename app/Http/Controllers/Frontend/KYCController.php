@@ -3,103 +3,68 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\KYC;
 use App\Services\AlertService;
 use App\Traits\FileUploadTrait;
-use App\Models\KYC;
-use Illuminate\Http\Request;
-use Illuminate\Http\RedirectResponse;
 use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
 
 class KYCController extends Controller
 {
     use FileUploadTrait;
 
+    /**
+     * Hiển thị trang đăng ký KYC.
+     */
     public function index(): View|RedirectResponse
     {
-        if (
-            auth()->user()->kyc?->status == 'pending'
-            || auth()->user()->kyc?->status == 'approved'
-        ) {
+        $status = auth()->user()->kyc?->status;
+
+        if (in_array($status, ['pending', 'approved'])) {
             return redirect()->route('vendor.dashboard');
         }
 
         return view('frontend.pages.kyc');
     }
 
+    /**
+     * Gửi hoặc cập nhật yêu cầu xác thực KYC.
+     */
     public function store(Request $request): RedirectResponse
     {
-        $request->validate([
-
-            'full_name' => [
-                'required',
-                'string',
-                'max:255'
-            ],
-
-            'date_of_birth' => [
-                'required',
-                'date'
-            ],
-
-            'gender' => [
-                'required',
-                'max:255',
-                'string'
-            ],
-
-            'address' => [
-                'required',
-                'max:255',
-                'string'
-            ],
-
-            'document_type' => [
-                'required',
-                'max:255',
-                'string'
-            ],
-
-            'document_scan_copy' => [
-                'required',
-                'mimes:jpg,jpeg,png,pdf,doc,docx',
-                'max:10000'
-            ]
+        $validatedData = $request->validate([
+            'full_name' => ['required', 'string', 'max:255'],
+            'date_of_birth' => ['required', 'date'],
+            'gender' => ['required', 'string', 'max:255'],
+            'address' => ['required', 'string', 'max:255'],
+            'document_type' => ['required', 'string', 'max:255'],
+            'document_scan_copy' => ['required', 'mimes:jpg,jpeg,png,pdf,doc,docx', 'max:10000'],
         ]);
-        if (KYC::where('user_id', auth()->id())->exists()) {
 
-            $kyc = KYC::where('user_id', auth()->id())->first();
-        } else {
-
-            $kyc = new KYC();
-        }
-
-        $kyc->status = 'pending';
-
-
-        $kyc->user_id = auth()->id();
-
-        $kyc->full_name = $request->full_name;
-
-        $kyc->date_of_birth = $request->date_of_birth;
-
-        $kyc->gender = $request->gender;
-
-        $kyc->address = $request->address;
-
-        $kyc->document_type = $request->document_type;
+        $oldPath = auth()->user()->kyc?->document_scan_copy;
 
         $filePath = $this->uploadPrivateFile(
             $request->file('document_scan_copy'),
-            'kyc'
+            'kyc',
+            $oldPath
         );
 
-        $kyc->document_scan_copy = $filePath;
-
-        $kyc->save();
+        KYC::updateOrCreate(
+            ['user_id' => auth()->id()],
+            [
+                'full_name' => $validatedData['full_name'],
+                'date_of_birth' => $validatedData['date_of_birth'],
+                'gender' => $validatedData['gender'],
+                'address' => $validatedData['address'],
+                'document_type' => $validatedData['document_type'],
+                'document_scan_copy' => $filePath,
+                'status' => 'pending',
+            ]
+        );
 
         AlertService::created('Thông tin KYC của bạn đã được gửi thành công! Vui lòng chờ quản trị viên phê duyệt..');
 
-        return redirect()
-            ->route('vendor.dashboard');
+        return redirect()->route('vendor.dashboard');
     }
 }
