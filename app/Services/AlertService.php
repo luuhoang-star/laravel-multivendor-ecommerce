@@ -6,9 +6,12 @@ class AlertService {
         notyf()->success($message ? $message : 'Cập nhật Profile thành công');
     }
 
-
     public static function created($message = null) {
         notyf()->success($message ? $message : 'Tạo thành công.');
+    }
+
+    public static function deleted($message = null) {
+        notyf()->success($message ? $message : 'Xóa thành công.');
     }
 
     public static function error($message = null) {

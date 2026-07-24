@@ -2,17 +2,30 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Constants\Permission;
 use App\Http\Controllers\Controller;
 use App\Models\KYC;
 use App\Services\MailService;
 use App\Services\AlertService;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Controllers\HasMiddleware;
+use Illuminate\Routing\Controllers\Middleware;
 use Illuminate\View\View;
 use Illuminate\Support\Facades\Storage;
 use Symfony\Component\HttpFoundation\StreamedResponse;
 
-class KYCRequestController extends Controller
+class KYCRequestController extends Controller implements HasMiddleware
 {
+    /**
+     * Get the middleware that should be assigned to the controller.
+     */
+    public static function middleware(): array
+    {
+        return [
+            new Middleware('permission:' . Permission::MANAGE_KYC),
+        ];
+    }
+
     public function index(): View
     {
         $kycRequests = KYC::with('user')->paginate(25);

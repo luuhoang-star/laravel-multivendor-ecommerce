@@ -24,8 +24,12 @@ return Application::configure(basePath: dirname(__DIR__))
             'auth' => Authenticate::class, // Đăng ký middleware "auth" với lớp Authenticate. Khi một route sử dụng middleware "auth", nó sẽ kiểm tra xem người dùng đã xác thực hay chưa. Nếu chưa xác thực, người dùng sẽ được chuyển hướng đến trang đăng nhập.
             'guest' => RedirectIfAuthenticated::class, // Đăng ký middleware "guest" với lớp RedirectIfAuthenticated. Khi một route sử dụng middleware "guest", nó sẽ kiểm tra xem người dùng đã xác thực hay chưa. Nếu đã xác thực, người dùng sẽ được chuyển hướng đến một trang khác (thường là trang chủ hoặc bảng điều khiển).
             'kyc.verified' => CheckKYCStatus::class,
-            'role' => Role::class,
+            'user_role' => Role::class,
+            'role' => \Spatie\Permission\Middleware\RoleMiddleware::class,
+            'permission' => \Spatie\Permission\Middleware\PermissionMiddleware::class, //  Đăng ký alias "permission" cho middleware kiểm tra quyền
+            'role_or_permission' => \Spatie\Permission\Middleware\RoleOrPermissionMiddleware::class,
         ]);
+
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         $exceptions->shouldRenderJsonWhen(

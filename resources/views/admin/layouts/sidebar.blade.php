@@ -75,27 +75,55 @@
                            </div> <!-- Đóng dropdown-menu-columns -->
                        </div> <!-- Đóng dropdown-menu -->
                    </li> <!-- Đóng li -->
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#navbar-kyc" data-bs-toggle="dropdown"
-                            data-bs-auto-close="false" role="button" aria-expanded="false">
-                            <span class="nav-link-title"> Yêu cầu KYC </span>
-                        </a>
-                        <div class="dropdown-menu">
-                            <div class="dropdown-menu-columns">
-                                <div class="dropdown-menu-column">
-                                    <a class="dropdown-item" href="{{ route('admin.kyc.index') }}">
-                                        Tất cả yêu cầu
-                                    </a>
-                                    <a class="dropdown-item" href="{{ route('admin.kyc.pending') }}">
-                                        Yêu cầu chờ duyệt
-                                    </a>
-                                    <a class="dropdown-item" href="{{ route('admin.kyc.rejected') }}">
-                                        Yêu cầu bị từ chối
-                                    </a>
+                    @if (hasPermission([\App\Constants\Permission::MANAGE_KYC]))
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#navbar-kyc" data-bs-toggle="dropdown"
+                                data-bs-auto-close="false" role="button" aria-expanded="false">
+                                <span class="nav-link-title"> Yêu cầu KYC </span>
+                            </a>
+                            <div class="dropdown-menu">
+                                <div class="dropdown-menu-columns">
+                                    <div class="dropdown-menu-column">
+                                        <a class="dropdown-item" href="{{ route('admin.kyc.index') }}">
+                                            Tất cả yêu cầu
+                                        </a>
+                                        <a class="dropdown-item" href="{{ route('admin.kyc.pending') }}">
+                                            Yêu cầu chờ duyệt
+                                        </a>
+                                        <a class="dropdown-item" href="{{ route('admin.kyc.rejected') }}">
+                                            Yêu cầu bị từ chối
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </li>
+                        </li>
+                    @endif
+
+                    @if (hasPermission([\App\Constants\Permission::MANAGE_ROLE, \App\Constants\Permission::MANAGE_ADMIN_ACCOUNT]))
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#navbar-access" data-bs-toggle="dropdown"
+                                data-bs-auto-close="false" role="button" aria-expanded="false">
+                                <span class="nav-link-title"> Quản lý phân quyền </span>
+                            </a>
+                            <div class="dropdown-menu">
+                                <div class="dropdown-menu-columns">
+                                    <div class="dropdown-menu-column">
+                                        @if (hasPermission([\App\Constants\Permission::MANAGE_ROLE]))
+                                            <a class="dropdown-item" href="{{ route('admin.role.index') }}">
+                                                Vai trò
+                                            </a>
+                                        @endif
+                                        @if (hasPermission([\App\Constants\Permission::MANAGE_ADMIN_ACCOUNT]))
+                                            <a class="dropdown-item" href="{{ route('admin.role-user.index') }}">
+                                                Tài khoản Admin
+                                            </a>
+                                        @endif
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    @endif
+
 
                </ul>
                <!-- END NAVBAR MENU -->

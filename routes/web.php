@@ -32,7 +32,7 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
 
 /* Vendor Routes */
 
-Route::group(['prefix' => 'vendor', 'as' => 'vendor.', 'middleware' => ['auth', 'verified', 'role:vendor']], function () {
+Route::group(['prefix' => 'vendor', 'as' => 'vendor.', 'middleware' => ['auth', 'verified', 'user_role:vendor']], function () {
     Route::get('/dashboard', [VendorDashboardController::class, 'index'])
         ->name('dashboard');
     Route::resource('store-profile', StoreController::class);

@@ -11,6 +11,8 @@ use App\Http\Controllers\Admin\Auth\RegisteredUserController;
 use App\Http\Controllers\Admin\Auth\VerifyEmailController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\KYCRequestController;
+use App\Http\Controllers\Admin\RoleController;
+use App\Http\Controllers\Admin\RoleUserController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware('guest:admin') // middleware 'guest:admin sẽ kiểm tra xem người dùng có phải guard admin hay ko qua RedirectIfauthenticated, nếu là guard admin thì sẽ check xem người dùng đã đăng nhập chưa, nếu đã đăng nhập thì sẽ redirect về trang dashboard của admin, nếu chưa đăng nhập thì sẽ cho phép truy cập vào các route bên trong group này.
@@ -74,7 +76,14 @@ Route::middleware('auth:admin') // middleware 'auth:admin' sẽ kiểm tra xem n
         Route::get('kyc/{kyc_request}', [KYCRequestController::class, 'show'])->name('kyc.show');
         Route::get('kyc/{kyc_request}/download', [KYCRequestController::class, 'download'])->name('kyc.download');
         Route::put('kyc/{kyc_request}/update', [KYCRequestController::class, 'update'])->name('kyc.update');
+
+        /* Role Resource Route */
+        Route::resource('role', RoleController::class);
+
+        /* Role User Resource Route */
+        Route::resource('role-user', RoleUserController::class);
     });
+
 
 
 
